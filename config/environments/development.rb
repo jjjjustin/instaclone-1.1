@@ -39,12 +39,12 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
- config.paperclip_defaults = {
+  config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => kbinstabucket
-    :access_key_id => Figaro.env.pusher_key,
-    :secret_access_key => Figaro.env.pusher_secret
+    :bucket => "kbinstabucket",
+    :access_key_id => Figaro.env.aws_key,
+    :secret_access_key => Figaro.env.aws_secret
   }
 }
 end
