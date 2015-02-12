@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.2.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faker'
 
+gem 'paperclip', '~> 4.2'
+gem 'aws-sdk',  '< 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,8 +52,7 @@ end
 gem 'kaminari'
 gem 'puma'
 gem 'rails_12factor'
-gem 'paperclip', '~> 4.2'
-gem 'aws-sdk'
+
 gem 'figaro'
 gem 'devise'
 group :test, :development do
