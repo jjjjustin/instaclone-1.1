@@ -7,6 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <div><h3 class="nav-title"> Instaclone   </h3></div>
+
+      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to 'Home', root_path %></button>
+      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to 'Sign Up Now', new_user_registration_path %></button>
+      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to 'Sign In Now', new_user_session_path %></button>
+      <% if user_signed_in? %>
+      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
+      <% end %>
+    </div>
+
+  </nav>
+
 <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 <%= yield %>
