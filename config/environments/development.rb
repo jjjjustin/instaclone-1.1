@@ -42,7 +42,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => "kbinstabucket",
+    :bucket => "kbjsinstaclone",
     :access_key_id => Figaro.env.aws_key,
     :secret_access_key => Figaro.env.aws_secret
   }
