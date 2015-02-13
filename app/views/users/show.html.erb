@@ -1,3 +1,29 @@
-<h1> User Profile Page </h1>
-<div><%= image_tag current_user.avatar.url(:medium) %></div>
+<p id="notice"> <%= notice %></p>
+
+<div class="stripe">
+
+<h1 class="title"><%= @user.profile_name.capitalize %>'s Profile Page</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+      <span class="avatar-pic"><%= image_tag current_user.avatar.url(:medium) %></span>
+      <p class="user-info profile-name"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><strong> Profile Name: </strong><%= @user.profile_name %> </p>
+      <p class="user-info name"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong>Name: </strong><%= @user.full_name %></p>
+      <p class="user-info bio"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><strong> Bio: </strong><%= @user.bio %></p>
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-7">
+    <h3> <%= @user.profile_name.capitalize %>'s Posts</h3><br />
+
+
+    </div>
+  </div>
+</div>
+
 
