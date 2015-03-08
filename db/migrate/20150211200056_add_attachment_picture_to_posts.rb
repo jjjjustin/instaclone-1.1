@@ -1,7 +1,7 @@
 class AddAttachmentPictureToPosts < ActiveRecord::Migration
   def self.up
     change_table :posts do |t|
-      t.attachment :picture
+      t.attachment :picture, null: false
     end
   end
 
