@@ -20,8 +20,9 @@
       <% @posts.each do |post| %>
       <div class="well well-lg">
         <ul>
-          <li class="post-info"><h3><%= post.caption %></h3></li>
+<!--           <li class="post-info"><h2><%= link_to post.user.profile_name, user_path(post.user) %></h2></li> -->
           <li class="post-info"><%= image_tag post.picture.url(:medium) %></li>
+          <li class="post-info"><h3><%= post.caption %></h3></li>
         </ul>
       </div>
       <% end %>
