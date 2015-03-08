@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
-        format.html { redirect_to users_show_path(current_user), notice: 'Post was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Post was successfully created.' }
       else
         format.html { redirect_to root_path, notice: "Something went wrong" }
       end

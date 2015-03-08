@@ -4,9 +4,6 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  get 'users/index' => 'users#index'
-  get 'posts/show' => 'posts#show'
-  get 'users/show' => 'users#show'
   root 'users#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
