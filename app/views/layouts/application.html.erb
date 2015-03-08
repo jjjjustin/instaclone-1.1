@@ -4,25 +4,38 @@
   <title>Instaclone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/cerulean/bootstrap.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-    <div class="container">
-
-      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to 'Home', root_path %></button>
-
-      <% if user_signed_in? %>
-      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
-      <% else %>
-      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to 'Sign Up Now', new_user_registration_path %></button>
-      <button type="button" class="btn btn-default navbar-btn btn-left"><%= link_to 'Sign In Now', new_user_session_path %></button>
-      <% end %>
-     <h3 class="nav-title">Instaclone</h3>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <a class="navbar-brand">InstaClone</a>
     </div>
 
-  </nav>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Dashboard', users_path(current_user) %></li>
+
+      <% else %>
+        <li><li><%= link_to 'Home', root_path %></li>
+      <% end %>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to('Logout', destroy_user_session_path(current_user), :method => :delete) %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 
 <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
