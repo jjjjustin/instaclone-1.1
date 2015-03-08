@@ -8,38 +8,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <a class="navbar-brand">InstaClone</a>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <a class="navbar-brand">InstaClone</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Dashboard', users_path(current_user) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path(current_user), :method => :delete) %></li>
+        <% else %>
+          <li><li><%= link_to 'Home', root_path %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Dashboard', users_path(current_user) %></li>
+  <div class="container">
+  <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
 
-      <% else %>
-        <li><li><%= link_to 'Home', root_path %></li>
-      <% end %>
-      </ul>
+  <%= yield %>
 
-
-      <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-        <li><%= link_to('Logout', destroy_user_session_path(current_user), :method => :delete) %></li>
-      <% end %>
-      </ul>
-    </div>
   </div>
-</nav>
-
-
-
-<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-<%= yield %>
-
 </body>
 </html>
