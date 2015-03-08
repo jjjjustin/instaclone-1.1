@@ -50,8 +50,15 @@
 
     <div class="col-md-8">
     <h3> <%= @user.profile_name.capitalize %>'s Posts</h3><br />
+      <% @user.posts.each do |post| %>
+      <div class="well well-lg">
+        <ul>
+          <li class="post-info"><h3><%= post.caption %></h3></li>
+          <li class="post-info"><%= image_tag post.picture.url(:medium) %></li>
+        </ul>
+      </div>
+      <% end %>
 
-      <div class="well well-lg">User Posts</div>
 
     </div>
     <div class="col-md-2">

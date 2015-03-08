@@ -1,4 +1,14 @@
 Rails.application.configure do
+
+  config.paperclip_defaults = {
+  :storage => 's3',
+  :s3_credentials => {
+    :s3_host_name => 's3-us-west-2.amazonaws.com',
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -39,12 +49,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => "kbjsinstaclone",
-    :access_key_id => Figaro.env.aws_key,
-    :secret_access_key => Figaro.env.aws_secret
-  }
-}
+
 end
