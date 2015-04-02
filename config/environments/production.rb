@@ -1,13 +1,13 @@
 Rails.application.configure do
-  config.paperclip_defaults = {
-    :storage => 's3',
-    :s3_credentials => {
-      :s3_host_name => 's3-us-west-2.amazonaws.com',
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
-  }
+      config.paperclip_defaults = {
+        :storage => 's3',
+        :bucket => 'instaclone-justin',
+        :s3_endpoint => 's3-us-west-2.amazonaws.com',
+        :s3_credentials => {
+          :access_key_id => Figaro.env.aws_key,
+          :secret_access_key => Figaro.env.aws_secret
+        }
+      }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
